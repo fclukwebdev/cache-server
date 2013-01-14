@@ -1,5 +1,5 @@
 {
-    "cache_base": "/data/httpd/{server_name}/cache",
-    "remote_server": "http://int.{server_name}",
-    "server_port": 8888
+    "cacheBase": "/data/httpd/{server_name}/cache",
+    "remoteServer": "http://int.{server_name}",
+    "serverPort": 8888
 }

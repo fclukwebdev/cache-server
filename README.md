@@ -26,14 +26,14 @@ You can use the placeholder `{server_name}` with your config file to automatical
 
 <pre>
 {
-    "cache_base": "/data/httpd/{server_name}/cache",
-    "remote_server": "http://int.{server_name}",
-    "server_port": 8888
+    "cacheBase": "/data/httpd/{server_name}/cache",
+    "remoteServer": "http://int.{server_name}",
+    "serverPort": 8888
 }
 </pre>
 
 The config file contains three settings:
 
-* `cache_base` - the folder you wish to cache files to.
-* `remote_server` - the URL of the remote server to load pages from
-* `server_port` - the port the
+* `cacheBase` - the folder you wish to cache files to.
+* `remoteServer` - the URL of the remote server to load pages from
+* `serverPort` - the port the

@@ -12,9 +12,9 @@
 
     // Setup globals
     var scope = this;
-    var cache_base = config.cache_base || '';
-    var remote_server = config.remote_server || '';
-    var server_port = config.server_port || 80;
+    var cacheBase = config.cacheBase || '';
+    var remoteServer = config.remoteServer || '';
+    var serverPort = config.serverPort || 80;
 
     function processUrl(url) {
 
@@ -117,8 +117,8 @@
 
             // Base path for vhost
             var serverName = request.headers['x-forwarded-host'].replace(/[^\.]+\./, '');
-            var basePath = cache_base.replace('{server_name}', serverName);
-            var requestPath = remote_server.replace('{server_name}', serverName) + requestUrl;
+            var basePath = cacheBase.replace('{server_name}', serverName);
+            var requestPath = remoteServer.replace('{server_name}', serverName) + requestUrl;
 
             console.log('Request recieved: ' + requestPath);
             console.log('Request ref: ' + urlObj.queryString.ref);
@@ -166,8 +166,8 @@
         });
 
         // Listen on port defined in config, IP defaults to 127.0.0.1
-        server.listen(server_port);
-        console.log('Server running at http://127.0.0.1:' + server_port + '/');
+        server.listen(serverPort);
+        console.log('Server running at http://127.0.0.1:' + serverPort + '/');
 
     }
 
