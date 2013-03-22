@@ -58,8 +58,8 @@
         callback = callback || function () { return false; };
 
         htmlContent += fs.readFileSync(cachePath);
-
-        callback.call(scope, htmlContent);
+        
+	callback.call(scope, htmlContent);
 
     }
 
@@ -79,6 +79,7 @@
             });
 
             res.on('end', function () {
+
                 //check if cache folder exists
                 checkSubdirectory(basePath);
 
@@ -90,11 +91,12 @@
                 }
 
                 if (typeof cachePath !== 'undefined') {
+		    var _this = this;
                     console.log('Saving into cache: ' + cachePath);
-                    var fd = fs.openSync(cachePath, 'w+', '0777');
-                    fs.writeSync(fd, htmlContent, 0, htmlContent.length, 0);
-                    console.log('Writing file to: ' + cachePath);
-                    callback.call(this, true, htmlContent);
+		    fs.writeFile(cachePath, htmlContent, function (err) {
+			console.log('File saved');
+			callback.call(_this, true, htmlContent);
+		    });
                 }
             });
         });
